@@ -14,21 +14,21 @@
  *
  * USAGE:
  *    - Order the desired clips by NAME in ASCENDING order, in the project pane.
- *        - Select all of them
- * 		  - Launch the script from the File->Script menu.
+ *    - Select all of them
+ * 	  - Launch the script from the File->Script menu.
  *
  * CAVEAT: 
  * 	  - Make sure to select only VIDEO files, no images, no, solids, no folders..
- *        - By now the scripts expects the files names to be in the format scene#.shot#.take#.part#.mov
- *        - The files must have unique names
- *        - The original frame rate of the footage must be 24p, encapsulated in 30i by 3:2 pulldown 			
+ *    - By now the scripts expects the files names to be in the format scene#.shot#.take#.part#.mov
+ *    - The files must have unique names
+ *    - The original frame rate of the footage must be 24p, encapsulated in 30i by 3:2 pulldown 			
  *
  * TODO:
  * 	  - The script itself should order the clips by name
  *    - Making a GUI to let the user specify some parameters like the resize factor, the naming convention or the output file format.
- *        - In case the video has been recorded in 25p the script shouldn't attempt to remove pulldown and perform a simple de-interlace instead.
- *        - Adding support fort 3rd party plugins. E.g. Magic Bullet for the resizing.
- *        - Tidy up code.
+ *    - In case the video has been recorded in 25p the script shouldn't attempt to remove pulldown and perform a simple de-interlace instead.
+ *    - Adding support fort 3rd party plugins. E.g. Magic Bullet for the resizing.
+ *    - Tidy up code.
  *
  */
 
@@ -46,13 +46,15 @@ var curLayer;
 app.beginUndoGroup("VAS_NinjaComb")
 
 //Remove pulldown
-for (i = 0; i < selected.length; i++) {
+for (i = 0; i < selected.length; i++)
+{
     item = selected[i];
     item.mainSource.fieldSeparationType = FieldSeparationType.UPPER_FIELD_FIRST;
     item.mainSource.guessPulldown(PulldownMethod.PULLDOWN_3_2);
 }
 
-for (i = 0; i < selected.length; i++) {
+for (i = 0; i < selected.length; i++)
+{
     item = selected[i];
     baseName = item.name.split('.'); //Create an array with this structure: [scene, shot, take, part, extension]
     
@@ -67,11 +69,12 @@ for (i = 0; i < selected.length; i++) {
     }
     
 	//Loop the remaining clips, searching for the other parts of the same takel (start a new counter from where the last stopped).
-    for (var j = (i+1); j < selected.length; j++) {
+    for (var j = (i+1); j < selected.length; j++)
+    {
         var confItem = selected[j];
         var confName = confItem.name.split('.');
         
-	if(isSameTake(baseName, confName) ) //Check if I found another part of the same take.
+		if(isSameTake(baseName, confName) ) //Check if I found another part of the same take.
         {
 			curLayer = curComp.layers.add(confItem);//Add the clip to the composition.
 			curLayer.scale.setValue([120, 120]);
@@ -88,7 +91,8 @@ app.endUndoGroup()
 
 
 //Function to check if two clips are part of the same take. Returns true if 'scene', 'shot' and 'take' fields of the two file names are the same. 
-function isSameTake(a, b) {
+function isSameTake(a, b)
+{
     if ( a[0]  == b[0] && a[1]  == b[1] && a[2]  == b[2])
         return true;
     else
