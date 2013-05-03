@@ -1,6 +1,9 @@
 ##NinjaComb for AfterEffects
 
+
 Copyright VAS www.vas.it
+
+Tested and working on AfterEffects CS5.5 & CS6. Should work from CS3+
 
 The script does the following:
 
