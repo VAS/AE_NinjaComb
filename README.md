@@ -1,6 +1,9 @@
 ##NinjaComb for AfterEffects
-Copyright VAS www.vas.it 
+
+Copyright VAS www.vas.it
+
 The script does the following:
+
 - removes 3:2 pulldown from each of the selected clips 
 - creates a new composition for each take
 - joins the sparse video files produced by Ninja.
@@ -9,14 +12,19 @@ The script does the following:
 - Lastly, it adds the new compositions to the render queue, using default settings. 
 
 ###USAGE:
+
    - Order the desired clips by NAME in ASCENDING order, in the project pane.
    - Select all of them
    - Launch the script from the File->Script menu.
+
+
 ###CAVEAT: 
    - Make sure to select only VIDEO files, no images, no, solids, no folders..
    - By now the scripts expects the files names to be in the format scene#.shot#.take#.part#.mov
    - The files must have unique names
-   - The original frame rate of the footage must be 24p, encapsulated in 30i by 3:2 pulldown   		
+   - The original frame rate of the footage must be 24p, encapsulated in 30i by 3:2 pulldown 
+
+     		
 ###TODO:
    - The script itself should order the clips by name
    - Making a GUI to let the user specify some parameters like the resize factor, the naming convention or the output file format.
