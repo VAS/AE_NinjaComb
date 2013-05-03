@@ -46,15 +46,13 @@ var curLayer;
 app.beginUndoGroup("VAS_NinjaComb")
 
 //Remove pulldown
-for (i = 0; i < selected.length; i++)
-{
+for (i = 0; i < selected.length; i++) {
     item = selected[i];
     item.mainSource.fieldSeparationType = FieldSeparationType.UPPER_FIELD_FIRST;
     item.mainSource.guessPulldown(PulldownMethod.PULLDOWN_3_2);
 }
 
-for (i = 0; i < selected.length; i++)
-{
+for (i = 0; i < selected.length; i++) {
     item = selected[i];
     baseName = item.name.split('.'); //Create an array with this structure: [scene, shot, take, part, extension]
     
@@ -69,12 +67,11 @@ for (i = 0; i < selected.length; i++)
     }
     
 	//Loop the remaining clips, searching for the other parts of the same takel (start a new counter from where the last stopped).
-    for (var j = (i+1); j < selected.length; j++)
-    {
+    for (var j = (i+1); j < selected.length; j++) {
         var confItem = selected[j];
         var confName = confItem.name.split('.');
         
-		if(isSameTake(baseName, confName) ) //Check if I found another part of the same take.
+	if(isSameTake(baseName, confName) ) //Check if I found another part of the same take.
         {
 			curLayer = curComp.layers.add(confItem);//Add the clip to the composition.
 			curLayer.scale.setValue([120, 120]);
@@ -91,8 +88,7 @@ app.endUndoGroup()
 
 
 //Function to check if two clips are part of the same take. Returns true if 'scene', 'shot' and 'take' fields of the two file names are the same. 
-function isSameTake(a, b)
-{
+function isSameTake(a, b) {
     if ( a[0]  == b[0] && a[1]  == b[1] && a[2]  == b[2])
         return true;
     else
