@@ -34,16 +34,14 @@
 
 var selected = app.project.selection;
 var i = 0;
-var item ;
+var item;
 var blackList = Array();
 
 var baseName;
 var curComp;
 var curLayer;
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.beginUndoGroup("VAS_NinjaComb")
+app.beginUndoGroup("VAS_NinjaComb");
 
 //Remove pulldown
 for (i = 0; i < selected.length; i++) {
@@ -64,15 +62,15 @@ for (i = 0; i < selected.length; i++) {
     if(contains(blackList, item) == false) {
 
         //name of composition: deleting the extension and the part number.
-		compName = baseName[0] + '.' + baseName[1] + '.' + baseName[2];
+        compName = baseName[0] + '.' + baseName[1] + '.' + baseName[2];
 
         //Create the new comp
-		curComp = app.project.items.addComp(compName, item.width, item.height, item.pixelAspect, item.duration, item.frameRate);
-		curLayer = curComp.layers.add(item);
-		curLayer.scale.setValue([120, 120]);
+        curComp = app.project.items.addComp(compName, item.width, item.height, item.pixelAspect, item.duration, item.frameRate);
+        curLayer = curComp.layers.add(item);
+        curLayer.scale.setValue([120, 120]);
 
         //Add the new comp to the render queue
-		app.project.renderQueue.items.add(curComp); 
+        app.project.renderQueue.items.add(curComp); 
     }
     
 	// Loop the remaining clips, searching for the other parts 
@@ -94,7 +92,7 @@ for (i = 0; i < selected.length; i++) {
     }
 }
 
-app.endUndoGroup() 
+app.endUndoGroup();
 
 
 //Function to check if two clips are part of the same take. Returns true if 'scene', 'shot' and 'take' fields of the two file names are the same. 
