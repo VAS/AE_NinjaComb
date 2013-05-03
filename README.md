@@ -1,7 +1,8 @@
 ##NinjaComb for AfterEffects
 
-
 Copyright VAS www.vas.it
+
+An AfterEffects script for automated pulldown removing, file merging and cleanup. Especially tailored for [Atomos Ninja](http://www.atomos.com/ninja/) output files.
 
 Tested and working on AfterEffects CS5.5 & CS6. Should work from CS3+
 
