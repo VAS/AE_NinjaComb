@@ -1,7 +1,5 @@
 ##NinjaComb for AfterEffects
 
-Copyright VAS www.vas.it
-
 An AfterEffects script for automated pulldown removing, file merging and cleanup. Especially tailored for [Atomos Ninja](http://www.atomos.com/ninja/) output files.
 
 Tested and working on AfterEffects CS5.5 & CS6. Should work from CS3+
@@ -15,21 +13,21 @@ The script does the following:
   (the HDMI output of the Canon 550D/7D et simila is letterboxed).
 - Lastly, it adds the new compositions to the render queue, using default settings. 
 
-###USAGE:
+##Usage:
 
    - Order the desired clips by NAME in ASCENDING order, in the project pane.
    - Select all of them
    - Launch the script from the File->Script menu.
 
 
-###CAVEAT: 
+###Heads up! 
    - Make sure to select only VIDEO files, no images, no, solids, no folders..
    - By now the scripts expects the files names to be in the format scene#.shot#.take#.part#.mov
    - The files must have unique names
    - The original frame rate of the footage must be 24p, encapsulated in 30i by 3:2 pulldown 
 
      		
-###TODO:
+##Todo:
    - The script itself should order the clips by name
    - Making a GUI to let the user specify some parameters like the resize factor, the naming convention or the output file format.
    - In case the video has been recorded in 25p the script shouldn't attempt to remove pulldown and perform a simple de-interlace instead.
